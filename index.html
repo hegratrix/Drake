@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <meta charset="utf-8" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <title>WeatherCompare</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" type="text/css" media="screen" href="../Group-Project-1/assets/css/reset.css" />
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+     <link rel="stylesheet" type="text/css" media="screen" href="../Group-Project-1/assets/css/style.css" />
+
+
+     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body class="bg">
+
+     <div class="container">
+
+          <!-- main page header/title area -->
+
+          <div class="container-full-sm">
+               <div class="row" style="justify-content: center">
+                    <div class="jumbotron jumbotron-fluid">
+                         <div class="container">
+                              <h1 class="display-4">WeatherCompare</h1>
+                              <p class="lead">Compare the current conditions from where you are now to where you'll be
+                                   later.</p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <!--location & destination cards-->
+      
+
+          <div class="container">
+
+               <div class="row">
+                    <div class="col-sm">
+                         <div class="card">
+                              <div class="card-body">
+                                   Where are you right now?
+                              </div>
+                              <input class="form-control" id="city1-input" type="text" placeholder="Enter ZIP or airport code">
+                         </div>
+                    </div>
+                    <div class="col-sm">
+                         <div class="card">
+                              <div class="card-body">
+                                   Where will you be going?
+                              </div>
+                              <input class="form-control" id="city2-input" type="text" placeholder="Enter ZIP or airport code">
+                         </div>
+                    </div>
+               </div>
+
+               <!--depature & return entered here-->
+
+               <div class="row">
+                    <div class="col-sm">
+                         <div class="card">
+                              <div class="card-body">
+                                   When are you leaving?
+                              </div>
+                              <input class="form-control" type="text" placeholder="MM/DD/YYYY">
+                         </div>
+                    </div>
+                    <div class="col-sm">
+                         <div class="card">
+                              <div class="card-body">
+                                   When are you returning?
+                              </div>
+                              <input class="form-control" type="text" placeholder="MM/DD/YYYY">
+                         </div>
+                    </div>
+               </div>
+
+
+               <!--compare button-->
+
+               <div class="row">
+
+                    <div class="col-sm text-center">
+                         <button type="button" class="btn btn-primary btn-responsive">Compare</button>
+                    </div>
+
+               </div>
+
+               <!--footer if we need/want it-->
+
+               <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                         <a class="nav-link" href="#">Link 1</a>
+                    </li>
+               </ul>
+
+          </div>
+     </div>
+
+     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+          crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
+     <script src="../Group-Project-1/assets/javascript/javascript.js"></script>
+
+</body>
+
+</html>
