@@ -1,9 +1,12 @@
 /* body {
+<<<<<<< HEAD
   background-attachment: fixed; 
   background-size: cover;
 } */
 
 body {
+=======
+>>>>>>> 2b3d01d77691befdaff09681bf520c078bcbeb4b
   background-image: url("../images/beach.png");
   background-size: cover;
 }
@@ -11,12 +14,6 @@ body {
 .bg {
   background-attachment: fixed;  
   background-size: cover;
-}
-
-.card,
-.form-control {
-     text-align: center;
-     margin-bottom: 5px;
 }
 
 .jumbotron-fluid {
@@ -28,26 +25,18 @@ body {
      padding-top: 30px;
 }
 
-.card {
-     font-weight: bold;
-     background-color: transparent;
-     color: white;
-     border: none;
+#input-card {
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  border: none;
 }
 
 .btn-responsive {
      margin-top: 60px;
 }
 
-.nav {
-     margin-top: 50px;
-}
-
-.nav-link {
-     color: white;
-}
-
-.form-control {
+#form-body {
   width: 60%;
   margin-left: 20%;
 }
