@@ -3,10 +3,10 @@
   background-size: cover;
 } */
 
-/* body {
+body {
   background-image: url("../images/beach.png");
   background-size: cover;
-} */
+}
 
 .bg {
   background-attachment: fixed;  
