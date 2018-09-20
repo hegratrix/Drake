@@ -32,14 +32,22 @@ body {
   border: none;
 }
 
-.btn-responsive {
-     margin-top: 60px;
+.btn-primary {
+     margin-top: 30px;
 }
 
-#form-body {
-  width: 60%;
-  margin-left: 20%;
+#form-body  {
+    width: 60%;
+    margin-left: 20%;
 }
+
+#startDate,
+#endDate    {
+    width: 30%;
+    margin-left: 40%;
+}
+
+
 
 
 
