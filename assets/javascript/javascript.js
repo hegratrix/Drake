@@ -1,26 +1,27 @@
 // randomized the background image
 
 var myImages = [
-     // "../Group-Project-1/assets/images/desert.jpg",
-     "../Group-Project-1/assets/images/beach.png",
-     // "../Group-Project-1/assets/images/city2.jpg",
-     // "../Group-Project-1/assets/images/rain.jpg",
-     // "../Group-Project-1/assets/images/forest.jpg",
-     // "../Group-Project-1/assets/images/vegas.jpg",
-     // "../Group-Project-1/assets/images/grand-canyon.jpg",
-     // "../Group-Project-1/assets/images/london.jpg",
-     // "../Group-Project-1/assets/images/seattle.jpg",
-     // "../Group-Project-1/assets/images/night-sky.jpg",
+     "./assets/images/desert.jpg",
+     "./assets/images/beach.png",
+     "./assets/images/city2.jpg",
+     "./assets/images/rain.jpg",
+     "./assets/images/forest.jpg",
+     "./assets/images/vegas.jpg",
+     "./assets/images/grand-canyon.jpg",
+     "./assets/images/london.jpg",
+     "./assets/images/seattle.jpg",
+     "./assets/images/night-sky.jpg",
 ];
 
-function changeImg(imgNumber) {
+function changeImg() {
 
      var imgShown = document.body.style.backgroundImage;
      var newImgNumber = Math.floor(Math.random() * myImages.length);
+     console.log(newImgNumber)
      document.body.style.backgroundImage = 'url(' + myImages[newImgNumber] + ')';
 }
 
-window.onload = changeImg
+window.onload = changeImg()
 
 // DATE PICKER FUNCTIONALITY
 
