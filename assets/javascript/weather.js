@@ -1,10 +1,23 @@
+var config = {
+  apiKey: "AIzaSyCzzV_Q0Xb1DSeNP4SFcWD-Z2HoJmxZ2NU",
+  authDomain: "group-project-1-f0fcb.firebaseapp.com",
+  databaseURL: "https://group-project-1-f0fcb.firebaseio.com",
+  projectId: "group-project-1-f0fcb",
+  storageBucket: "group-project-1-f0fcb.appspot.com",
+  messagingSenderId: "119110396333"
+}
+  firebase.initializeApp(config);
+
+  let db = firebase.database()
+  let userRef = db.ref()
+
 //API call on button click to retrieve temp at both city inputs
-$(".btn").on("click", function (event) {
+$("#compare-btn").on("click", function (event) {
   event.preventDefault();
   $("#current-temp").empty();
 
-  let city1 = $("#city1-input").val();
-  let city2 = $("#city2-input").val();
+  let city1 = $(".city1-input").val();
+  let city2 = $(".city2-input").val();
   let url1 =
     "https://api.apixu.com/v1/current.json?key=b44ed5063f3342b280513045181409&q=" +
     city1;
@@ -38,7 +51,7 @@ $(".btn").on("click", function (event) {
           $("#current-temp").append(city2Condition);
           $("#current-temp").append("https:" + city2Icon);
 
-
+          console.log()
         })
         .catch(function (e) { });
     })

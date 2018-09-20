@@ -17,7 +17,6 @@ function changeImg() {
 
      var imgShown = document.body.style.backgroundImage;
      var newImgNumber = Math.floor(Math.random() * myImages.length);
-     console.log(newImgNumber)
      document.body.style.backgroundImage = 'url(' + myImages[newImgNumber] + ')';
 }
 
