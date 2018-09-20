@@ -32,11 +32,11 @@ $(".btn").on("click", function (event) {
           let humDifference = Math.round(city1Hum - city2Hum);
           let windDifference = Math.round(city1Wind - city2Wind);
 
-          $("#current-temp").append(tempDifference + "\xB0 F");
-          $("#current-temp").append(humDifference + "%");
-          $("#current-temp").append(windDifference + " mph");
-          $("#current-temp").append(city2Condition);
-          $("#current-temp").append("https:" + city2Icon);
+          $("#current-temp").append(`<div>${tempDifference}\xB0 F</div>`);
+          $("#current-temp").append(`<div>${humDifference}%</div>`);
+          $("#current-temp").append(`<div>${windDifference} mph`);
+          $("#current-temp").append(`<div>${city2Condition}`);
+          $("#current-temp").append(`<div><img id="weatherIcon" src="https:${city2Icon}" alt=weatherIcon>`);
 
 
         })
@@ -44,7 +44,3 @@ $(".btn").on("click", function (event) {
     })
     .catch(function (e) { });
 });
-
-
-
-
