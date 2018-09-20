@@ -33,3 +33,17 @@
   width: 30%;
   margin-left: 40%;
 }
+
+.card-img-top {
+  width: 80px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#card-city {
+  font-size: 15px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: rgb(141, 188, 204);
+}
