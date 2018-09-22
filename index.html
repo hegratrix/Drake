@@ -6,14 +6,22 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <title>WeatherCompare</title>
+     
+     <!--CSS Reset-->
      <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css">
+     <!--Favicon-->
      <link rel="shortcut icon" type="image/png" href="assets/images/sun-512.png">
+     <!--BTS CDN-->
      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
+     <!--Font Awesome CDN-->     
      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
                crossorigin="anonymous">
+     <!--Balloon CSS Libary-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">               
+     <!--Custom CSS-->          
      <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css">
-     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css">
+     
 </head>
 
 <body class="bg">
@@ -35,19 +43,8 @@
 
      
                 <form class="form-inline">
-
-                         <!--adds email and password fields-->
-
-                         <!-- <input class="form-control mr-3" type="text" id="username" placeholder="Email">
-                         <input class="form-control mr-3" type="text" id="password" placeholder="Password">
-                         <div class="form-check">
-                              <label class="form-check-label mr-3">
-                                   <input type="checkbox" class="form-check-input"> Remember me
-                              </label>
-                         </div> -->
-
-                         <button type="submit" class="btn btn-light mr-3">Log In</button>
-                         <button type="submit" class="btn btn-light">Sign Up</button>
+                         <button data-balloon="Log in to the site." data-balloon-pos="down" type="submit" class="btn btn-light mr-3">Log In</button>
+                         <button data-balloon="Sign up for a free account." data-balloon-pos="down" type="submit" class="btn btn-light">Sign Up</button>
                     </form>
                </div>
           </div>
@@ -115,7 +112,7 @@
 
           <div class="form-row">
                <div class="form-group col-sm text-center">
-                    <button id="compare-btn" type="button" class="btn btn-primary">Compare</button>
+                    <button data-balloon="Get your weather comparison." data-balloon-pos="up" id="compare-btn" type="button" class="btn btn-primary">Compare</button>
                </div>
           </div>
 
@@ -129,7 +126,6 @@
           crossorigin="anonymous"></script>
      <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
      <script src="assets/javascript/javascript.js"></script>
      <script src="./assets/javascript/javascript.js"></script>
      <script src="./assets/javascript/combine.js"></script>
