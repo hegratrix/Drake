@@ -70,7 +70,7 @@
   width: 80%;
 }
 
-.close {
+.close, .close2 {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
@@ -78,7 +78,9 @@
 }
 
 .close:hover,
-.close:focus {
+.close:focus,
+.close2:hover,
+.close2:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
