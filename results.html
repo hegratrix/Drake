@@ -7,11 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>WeatherCompare Results</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+
+    <!--CSS Reset-->
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css">
+    <!--Favicon-->
     <link rel="shortcut icon" type="image/png" href="assets/images/sun-512.png">
+    <!--BTS CDN-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <!--Font Awesome CDN-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+    <!--Balloon CSS Libary-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
+    <!--Custom CSS-->
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css">
 </head>
 
 <body class="bg">
@@ -23,7 +33,8 @@
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
                     <h1>WeatherCompare</h1>
-                    <p class="lead">Here's your weather comparison.</p>
+                    <p class="lead">Compare the current conditions from where you are now to where you'll be
+                        later.</p>
                 </div>
             </div>
         </div>
@@ -41,21 +52,15 @@
     <div class="container">
 
         <div class="form-group col-sm text-center">
-            <button type="button" class="btn btn-primary mr-5">New Comparison</button>
-            <button type="button" class="btn btn-primary">Travel Items</button>
+            <button data-balloon="Run a new comparison." data-balloon-pos="up" id="new-comp-btn" type="button" class="btn btn-primary mr-5" id="new-comp-btn">New Comparison</button>
+            <button data-balloon="Find interesting places to go." data-balloon-pos="up" id="locations-btn" type="button" class="btn btn-primary" >Find Things To Do</button>
         </div>
 
 
     </div>
     </div>
 
-    <!--footer if we need/want it-->
-
-    <!-- <ul class="nav justify-content-center">
-               <li class="nav-item">
-                    <a class="nav-link" href="#">Link 1</a>
-               </li>
-          </ul> -->
+   
     </div>
     </div>
 
@@ -67,6 +72,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
     <script src="./assets/javascript/javascript.js"></script>
     <script src="./assets/javascript/combine.js"></script>
+    <script src="./assets/javascript/foursquare.js"></script>
 
 </body>
 

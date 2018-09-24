@@ -41,21 +41,24 @@ userRef.on("child_added", function(snapshot) {
        let url1 =
               "https://api.apixu.com/v1/forecast.json?key=b44ed5063f3342b280513045181409&q=" +
               city1 +
-              "&days=" +
-              duration;
+              "&days=10"
        
        let url2 =
               "https://api.apixu.com/v1/forecast.json?key=b44ed5063f3342b280513045181409&q=" +
               city2 +
-              "&days=" +
-              duration;
+              "&days=10"
        
        Promise.all([$.get(url1), $.get(url2)])
        .then(function (results) {
               console.log(results);
        
-              const city1Forecasts = results[0].forecast.forecastday;
-              const city2Forecasts = results[1].forecast.forecastday;
+              const city1Forecasts = results[0].forecast.forecastday.filter(
+                day => day.date >= fromDate
+              );
+
+              const city2Forecasts = results[1].forecast.forecastday.filter(
+                day => day.date >= fromDate
+              );
               let tempDiffMessage = ''
               let windDiffMessage = ''
               let humidityDiffMessage = ''
@@ -103,10 +106,10 @@ userRef.on("child_added", function(snapshot) {
                             <img class="card-img-top" src="https:${city2Icon}" alt="Card image cap">
                             <h2 id="card-city">${city2}</h2>
                             <div class="card-body">
-                                   <p class="card-text font-weight-bold">${day}: ${city2Condition}</p>
-                                   <p class="card-text">${tempDiffMessage}</p>
-                                   <p class="card-text">${humidityDiffMessage}</p>
-                                   <p class="card-text">${windDiffMessage}</p>
+                                   <p class="card-text font-weight-bold text-center">${day}: ${city2Condition}</p>
+                                   <p class="card-text text-center">${tempDiffMessage}</p>
+                                   <p class="card-text text-center">${humidityDiffMessage}</p>
+                                   <p class="card-text text-center">${windDiffMessage}</p>
                             </div>
                             </div>
                     `);
@@ -116,3 +119,8 @@ userRef.on("child_added", function(snapshot) {
               console.log(err);
        });
 })
+
+document.getElementById("new-comp-btn").onclick = function () {
+  location.href = "./index.html";
+};
+

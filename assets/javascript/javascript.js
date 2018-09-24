@@ -22,27 +22,22 @@ function changeImg() {
 
 window.onload = changeImg()
 
-// DATE PICKER FUNCTIONALITY
+// sign up pop up window
+var modal = document.getElementById('myModal')
+var btn = document.getElementById("myBtn")
+var span = document.getElementsByClassName("close")[0]
 
-// need #startDate and #endDate as IDs in depart/return forms
+btn.onclick = function() {
+    event.preventDefault()
+    modal.style.display = "block";
+}
 
-// var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-// $('#startDate').datepicker({
-//      uiLibrary: 'bootstrap4',
-//      iconsLibrary: 'fontawesome',
-//      minDate: today,
-//      maxDate: function () {
-//           return $('#endDate').val();
-//      }
-// });
-// $('#endDate').datepicker({
-//      uiLibrary: 'bootstrap4',
-//      iconsLibrary: 'fontawesome',
-//      minDate: function () {
-//           return $('#startDate').val();
-//      }
-// });
+span.onclick = function() {
+    modal.style.display = "none";
+}
 
-
-
-
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
