@@ -9,10 +9,16 @@
 //  console.error(error)
 //});
 
-$("#locations-btn").on("click", function(event) {
+let destinationCity = decodeURIComponent(window.location.search);
+destinationCity = destinationCity.substring(1);
+finalCity = destinationCity.replace('para1=', "");
+
+console.log(finalCity);
+
+$("#search-btn").on("click", function(event) {
     event.preventDefault();
-    let city2 = $("#city2-input").val();
-    let search = $("#foursquare-input").val();
+    let city2 = finalCity
+    let search = $(".foursquare-input").val();
     $.get(
         "https://api.foursquare.com/v2/venues/explore?client_id=3YERGI2M0YLICHXAYSS3E0HUGHJNPVPOET02V3UFM2SKPIJV&client_secret=PYF2M30ZSHNXR0KWY2YNSLVF0W3SI5RYGYFRDH1VEWJBVVSD&v=20180323&limit=10&near=" +
             city2 +
@@ -32,9 +38,7 @@ $("#locations-btn").on("click", function(event) {
                 const locationStreet = venue.location.formattedAddress[0];
                 const locationCity = venue.location.formattedAddress[1];
                 const category = venue.categories[0].name;
-
-                location.replace("./locations.html");
-
+                
                 console.log(venue);
                 console.log(name);
                 console.log(location);
@@ -61,3 +65,6 @@ document.getElementById("new-comp-btn").onclick = function () {
 document.getElementById("compare-btn").onclick = function () {
     location.href = "./results.html";
 };
+
+
+

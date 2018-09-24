@@ -31,10 +31,26 @@
                <div class="jumbotron jumbotron-fluid">
                     <div class="container">
                          <h1>WeatherCompare</h1>
-                         <p class="lead">Here are some places to visit where you'll be going.</p>
+                         <p class="lead">Find some interesting places to see or visit where you're going.</p>
                     </div>
                </div>
           </div>
+     </div>
+
+<!--foursquare search box-->
+
+<div class="container">
+<div class="form-row">
+     <div class="form-group col-sm text-center">
+          <div class="card text-center" id="input-card">
+               <div class="card-body">
+                    Where would you like to go?
+               </div>
+               <input class="form-control, foursquare-input" id="form-body" type="text" placeholder="Search restaurants, parks, attractions, etc in or near your destination.">
+               </div>
+               <button data-balloon="Get your search results." data-balloon-pos="up" id="search-btn" type="submit" class="btn btn-primary mb-2">Search</button>
+     </div>
+     </div>
      </div>
 
      <!--results for each day-->
@@ -45,12 +61,12 @@
      </div>
 
 
-     <!--reset button-->
+     <!--reset & back buttons-->
 
      <div class="container justify-content-center">
 
           <div class="form-group col-sm text-center">
-               <button data-balloon="Go back!" data-balloon-pos="up" type="button" id="compare-btn" class="btn btn-primary mr-5" >Back To
+               <button data-balloon="Go back." data-balloon-pos="up" type="button" id="compare-btn" class="btn btn-primary mr-5" >Back To
                     Comparison</button>
                <button data-balloon="Start over." data-balloon-pos="up" id="new-comp-btn" type="button" class="btn btn-primary">Create
                     New Comparison</button>
@@ -70,8 +86,8 @@
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
      <!---Custom Javascript-->
      <script src="assets/javascript/javascript.js"></script>
-     <script src="./assets/javascript/combine.js"></script>
-     <script src="./assets/javascript/foursquare.js"></script>
+     <script src="assets/javascript/combine.js"></script>
+     <script src="assets/javascript/foursquare.js"></script>
 
 </body>
 

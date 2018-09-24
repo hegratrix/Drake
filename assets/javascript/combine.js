@@ -10,25 +10,29 @@ var config = {
      
        let db = firebase.database()
        let userRef = db.ref()
+       
 
 // get info and push to firebase change to result page
 $("#compare-btn").on("click", function (event) {
-       event.preventDefault();
-       $("#current-temp").empty();
-       let city1 = $(".city1-input").val();
-       let city2 = $(".city2-input").val();
-       let fromDate = $(".leaving").val();
-       let toDate = $(".returning").val();
-       userRef.push ({
-              city1,
-              city2,
-              fromDate,
-              toDate
-       })
-       location.replace ('./results.html')
+      event.preventDefault();
+      $("#current-temp").empty();
+      let city1 = $(".city1-input").val();
+      let city2 = $(".city2-input").val();
+      let fromDate = $(".leaving").val();
+      let toDate = $(".returning").val();
+      userRef.push ({
+             city1,
+             city2,
+             fromDate,
+             toDate
+      })
+      let newCity2 = "?para1=" + city2;
+      location.replace ('./locations.html' + city2)
 })
 
+
 // using firebase, show results
+
 userRef.on("child_added", function(snapshot) {
        let city1 = snapshot.val().city1;
        let city2 = snapshot.val().city2;
@@ -118,9 +122,17 @@ userRef.on("child_added", function(snapshot) {
        .catch(function (err) {
               console.log(err);
        });
-})
+})  
 
 document.getElementById("new-comp-btn").onclick = function () {
   location.href = "./index.html";
 };
+
+document.getElementById("locations-btn").onclick = function () {
+  location.href = "./locations.html";
+};
+
+
+
+
 
