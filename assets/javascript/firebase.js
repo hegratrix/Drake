@@ -60,17 +60,28 @@ $('#submit-login').click(function (event){
   console.log(password)
   if (status === true) {
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+      promise
       var errorCode = error.code;
       var errorMessage = error.message;
       console.log(errorCode)
       console.log(errorMessage)
       if (errorCode.includes('auth/email-already-in-use')) {
-        modal.style.display = "none"
-      } else {
         $('#email-login').css('color','red')
         $('#email-login').text('Email Not Recognized')
+      } else {
+        console.log('good')
+        $('#myModalSignUp').css('display', 'none')
       }
     })
+  }
+})
+
+firebase.auth().onAuthStateChanged(firebaseUser => {
+  if (firebaseUser)  {
+    console.log(firebaseUser) 
+    $('#myModalSignUp').css('display', 'none')
+  } else {
+    console.log('not logged in')
   }
 })
 

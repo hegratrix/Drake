@@ -11,6 +11,7 @@ var config = {
  const settings = {timestampsInSnapshots: true}
  db.settings(settings)
 let city2 =''
+
 // get info and push to firebase change to result page
 $("#compare-btn").on("click", function (event) {
   event.preventDefault()
@@ -19,7 +20,7 @@ $("#compare-btn").on("click", function (event) {
   city2 = $(".city2-input").val();
   let fromDate = $(".leaving").val();
   let toDate = $(".returning").val();
-  db.collection("user").doc(email).set({
+  db.collection("user").doc('hegratrix@yahoo.com').set({
     trip: {
       starting: city1,
       destination: city2,
@@ -28,9 +29,10 @@ $("#compare-btn").on("click", function (event) {
     }
   })
   .then(function() {
+    console.log(city2)
     console.log("Document successfully written!"); 
     let newcity2 = "?para1=" + city2;
-    location.replace ('./results.html'+newcity2)
+    location.replace ('./results.html'+ newcity2)
   })
   .catch(function(error) {
     console.error("Error writing document: ", error);
@@ -38,10 +40,10 @@ $("#compare-btn").on("click", function (event) {
 })
 
 // // using firebase, show results
-let newEmail = decodeURIComponent(window.location.search);
-newEmail = newEmail.substring(1);
-let finalEmail = newEmail.replace('para1=','');
-var docRef = db.collection("user").doc(finalEmail)
+let newCity = decodeURIComponent(window.location.search);
+newCity = newCity.substring(1);
+let finalCity = newCity.replace('para1=','');
+var docRef = db.collection("user").doc('hegratrix@yahoo.com')
 // db.collection("user").get().then(function(snapshot) {
   // snapshot.forEach(function(doc) {
     docRef.get().then(function(doc) {
