@@ -23,21 +23,21 @@ function changeImg() {
 window.onload = changeImg()
 
 // Get the modal
-var modal = document.getElementById('myModalSignUp');
-var modal2 = document.getElementById('myModalLogIn');
+let modal = document.getElementById('myModalSignUp');
+let modal2 = document.getElementById('myModalLogIn');
 // Get the button that opens the modal
-var btn = document.getElementById("myBtnSignUp");
-var btn2 = document.getElementById("myBtnLogIn");
+let btnSignUp = document.getElementById("myBtnSignUp");
+let btnLogIn = document.getElementById("myBtnLogIn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-var span2 = document.getElementsByClassName("close2")[0];
+let span = document.getElementsByClassName("close")[0];
+let span2 = document.getElementsByClassName("close2")[0];
 // When the user clicks the button, open the modal 
-   btn.onclick = function() {
+   btnSignUp.onclick = function() {
     event.preventDefault()
     modal.style.display = "block";
 }
-btn2.onclick = function() {
+btnLogIn.onclick = function() {
     event.preventDefault()
     modal2.style.display = "block";
 }
