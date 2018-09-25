@@ -26,8 +26,6 @@
 4. Pick the date for the day you will be returning
 5. Click the 'Compare' button
 
-## If You are signed in, your unique trip data will be stored so you can come back to it later!
-
 ![weather compare](https://user-images.githubusercontent.com/38542949/46044764-87ddf100-c0d0-11e8-870a-ce81079803d5.gif)
 
 ### You will then have the option to either create a new comparison, or find local attractions at your destination
