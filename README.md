@@ -39,7 +39,9 @@ After your comparison:
 
 ![foursquare](https://user-images.githubusercontent.com/38542949/46044776-975d3a00-c0d0-11e8-93d6-e17451103b24.gif)
 
-### When you are done looking at the results, click the 'Back to Comparisson" button and you will be returned to your trip's result page
+### When you are done looking at the results, You may either:
+
+## 1. 
 
 ![back to comparison](https://user-images.githubusercontent.com/38542949/46044811-ad6afa80-c0d0-11e8-8f92-ca83f899740b.gif)
 
