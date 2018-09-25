@@ -32,7 +32,9 @@
 
 ### You will then have the option to either create a new comparison, or find local attractions at your destination
 
-After your comparison, select
+After your comparison:
+1. Select 'Find things to do'
+2. Enter something you are interested in into the empty field
 
 ![foursquare](https://user-images.githubusercontent.com/38542949/46044776-975d3a00-c0d0-11e8-93d6-e17451103b24.gif)
 
