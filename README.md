@@ -26,9 +26,11 @@
 4. Pick the date for the day you will be returning
 5. Click the 'Compare' button
 
-##If You are signed in, your unique trip data will be stored so you can come back to it later!
+## If You are signed in, your unique trip data will be stored so you can come back to it later!
 
 ![weather compare](https://user-images.githubusercontent.com/38542949/46044764-87ddf100-c0d0-11e8-870a-ce81079803d5.gif)
+
+
 
 ![foursquare](https://user-images.githubusercontent.com/38542949/46044776-975d3a00-c0d0-11e8-93d6-e17451103b24.gif)
 
