@@ -15,16 +15,17 @@ var config = {
 // get info and push to firebase change to result page
 $("#compare-btn").on("click", function (event) {
   event.preventDefault()
-  // $("#current-temp").empty();
   let city1 = $(".city1-input").val();
   city2 = $(".city2-input").val();
   let fromDate = $(".leaving").val();
   let toDate = $(".returning").val();
-  db.collection("user").doc('trips').set({
-    starting: city1,
-    destination: city2,
-    leaving: fromDate,
-    returning: toDate,
+  db.collection("user").doc(user).set({
+    trip: {
+      starting: city1,
+      destination: city2,
+      leaving: fromDate,
+      returning: toDate,
+    }
   })
   .then(function() {
     console.log("Document successfully written!"); 
@@ -40,12 +41,14 @@ $("#compare-btn").on("click", function (event) {
 let newCity = decodeURIComponent(window.location.search);
 newCity = newCity.substring(1);
 let finalCity = newCity.replace('para1=','');
-var docRef = db.collection("user").doc('trips')
+db.collection("user").get().then(function() {
+var docRef = db.collection("user").doc(user)
   docRef.get().then(function(doc) {
-  let city1 = doc.data().starting;
-  city2 = doc.data().destination;
-  let fromDate = doc.data().leaving;
-  let toDate = doc.data().returning;
+  let city1 = doc.data().trip.starting;
+  console.log(city1)
+  city2 = doc.data().trip.destination;
+  let fromDate = doc.data().trip.leaving;
+  let toDate = doc.data().trip.returning;
   let from = moment(fromDate).format("YYYY-MM-DD");
   let to = moment(toDate).format("YYYY-MM-DD");
   let duration = (moment(to, "YYYY-MM-DD").diff(moment(from, "YYYY-MM-DD"), 'days') +1)
@@ -107,4 +110,5 @@ var docRef = db.collection("user").doc('trips')
       `);
     }
   })
+})
 })
