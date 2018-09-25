@@ -35,6 +35,9 @@
 After your comparison:
 1. Select 'Find things to do'
 2. Enter something you are interested in into the empty field
+3. Click the 'Search' button
+
+## If any results for what you have entered in the field are found, they will appear on the page!
 
 ![foursquare](https://user-images.githubusercontent.com/38542949/46044776-975d3a00-c0d0-11e8-93d6-e17451103b24.gif)
 
