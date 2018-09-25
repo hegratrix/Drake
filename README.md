@@ -45,6 +45,6 @@ After your comparison:
 
 ![back to comparison](https://user-images.githubusercontent.com/38542949/46044811-ad6afa80-c0d0-11e8-8f92-ca83f899740b.gif)
 
-## 2. Click the 'New Comparison' bu
+## 2. Click the 'Create New Comparison' button to start a new trip!
 
 ![create new comparison](https://user-images.githubusercontent.com/38542949/46044832-c4115180-c0d0-11e8-9b20-10938c780927.gif)
