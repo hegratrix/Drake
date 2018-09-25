@@ -72,16 +72,21 @@ $('#submit-login').click(function (event){
 })
 
 function showPassword() {
-  let x = $("#password1-register")
-  let y = $("#password2-register")
-  if (x.type === "password") {
-      x.type = "text";
+  let type= $('#password1-register').attr('type')
+  if (type === 'password') { 
+    $('#password1-register').attr('type','text')
+    $('#password2-register').attr('type','text')
   } else {
-      x.type = "password";
+    $('#password1-register').attr('type','password')
+    $('#password2-register').attr('type','password')
   }
-  if (y.type === "password") {
-    y.type = "text";
+}
+
+function showPassword2() {
+  let type= $('#password-login').attr('type')
+  if (type === 'password') { 
+    $('#password-login').attr('type','text')
   } else {
-    y.type = "password";
+    $('#password-login').attr('type','password')
   }
 }

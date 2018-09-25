@@ -10,11 +10,11 @@ var config = {
  const db = firebase.firestore()
  const settings = {timestampsInSnapshots: true}
  db.settings(settings)
- let city2 =''
-
+let city2 =''
 // get info and push to firebase change to result page
 $("#compare-btn").on("click", function (event) {
   event.preventDefault()
+  // $("#current-temp").empty();
   let city1 = $(".city1-input").val();
   city2 = $(".city2-input").val();
   let fromDate = $(".leaving").val();
@@ -30,7 +30,7 @@ $("#compare-btn").on("click", function (event) {
   .then(function() {
     console.log("Document successfully written!"); 
     let newEmail = "?para1=" + email;
-    location.replace ('./results.html'+newEmail)
+     location.replace ('./results.html'+newEmail)
   })
   .catch(function(error) {
     console.error("Error writing document: ", error);
@@ -42,19 +42,27 @@ let newEmail = decodeURIComponent(window.location.search);
 newEmail = newEmail.substring(1);
 let finalEmail = newEmail.replace('para1=','');
 var docRef = db.collection("user").doc(finalEmail)
-docRef.get().then(function(doc) {
-  let city1 = doc.data().trip.starting;
-  city2 = doc.data().trip.destination;
-  let fromDate = doc.data().trip.leaving;
-  let toDate = doc.data().trip.returning;
-  let from = moment(fromDate).format("YYYY-MM-DD");
-  let to = moment(toDate).format("YYYY-MM-DD");
-  let duration = moment(to, "YYYY-MM-DD").diff(moment(from, "YYYY-MM-DD"), 'days')
-  // let duration = to.diff(from, "days");
-  let url1 ="https://api.apixu.com/v1/forecast.json?key=b44ed5063f3342b280513045181409&q=" +      city1 +"&days=10"
-  let url2 ="https://api.apixu.com/v1/forecast.json?key=b44ed5063f3342b280513045181409&q=" + city2 +"&days=10"
+// db.collection("user").get().then(function(snapshot) {
+  // snapshot.forEach(function(doc) {
+    docRef.get().then(function(doc) {
+      if (doc.exists) {
+          console.log("Document data:", doc.data().trip.destination);
+      }
+    let city1 = doc.data().trip.starting;
+    city2 = doc.data().trip.destination;
+    let fromDate = doc.data().trip.leaving;
+    let toDate = doc.data().trip.returning;
+    let from = moment(fromDate).format("YYYY-MM-DD");
+    let to = moment(toDate).format("YYYY-MM-DD");
+    let duration = moment(to, "YYYY-MM-DD").diff(moment(from, "YYYY-MM-DD"), 'days')
+          // let duration = to.diff(from, "days");
+    let url1 ="https://api.apixu.com/v1/forecast.json?key=b44ed5063f3342b280513045181409&q=" +      city1 +"&days=10"
+    let url2 ="https://api.apixu.com/v1/forecast.json?key=b44ed5063f3342b280513045181409&q=" + city2 +"&days=10"
     
-  Promise.all([$.get(url1), $.get(url2)])
+    
+
+   
+            Promise.all([$.get(url1), $.get(url2)])
   .then(function (results) {
     const city1Forecasts = results[0].forecast.forecastday.filter(
       day => day.date >= from
