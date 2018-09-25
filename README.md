@@ -30,7 +30,9 @@
 
 ![weather compare](https://user-images.githubusercontent.com/38542949/46044764-87ddf100-c0d0-11e8-870a-ce81079803d5.gif)
 
+### You will then have the option to either create a new comparison, or find local attractions at your destination
 
+After your comparison, select
 
 ![foursquare](https://user-images.githubusercontent.com/38542949/46044776-975d3a00-c0d0-11e8-93d6-e17451103b24.gif)
 
