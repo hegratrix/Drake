@@ -43,8 +43,8 @@
 
      
                 <form class="form-inline">
-                         <button id="myBtnLogIn" data-balloon="Log in to the site." data-balloon-pos="down" type="submit" class="btn btn-light mr-3">Log In</button>
-                         <button id="myBtnSignUp" data-balloon="Sign up for a free account." data-balloon-pos="down" type="submit" class="btn btn-light">Sign Up</button>
+                         <button data-balloon="Log in to the site." data-balloon-pos="down" type="submit" class="btn btn-light mr-3">Log In</button>
+                         <button data-balloon="Sign up for a free account." data-balloon-pos="down" type="submit" class="btn btn-light">Sign Up</button>
                     </form>
                </div>
           </div>
@@ -82,7 +82,7 @@
                          <div class="card-body">
                               Where will you be going?
                          </div>
-                         <input class="form-control, city2-input" id="form-body" type="text" placeholder="Your destination">
+                         <input class="form-control, city2-input" id="form-body" id="citySearch" type="text" placeholder="Your destination">
                     </div>
                </div>
           </div>
@@ -119,9 +119,9 @@
           
      </div>
      </div>
-     <div id="myModalSignUp" class="modal">
+     <div id="myModal" class="modal">
 
-        <!-- Modal content sign up -->
+        <!-- Modal content -->
         <div class="modal-content">
           <span class="close">&times;</span>
           <div class="container-fluid">
@@ -151,43 +151,6 @@
         </div>
       </div></div></div>
       </div>
-      
-
-      <div id="myModalLogIn" class="modal">
-
-        <!-- Modal content sign up -->
-        <div class="modal-content">
-          <span class="close2">&times;</span>
-
-      <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4 col-sm-4 col-xs-12"></div>
-        <div class="col-md-4 col-sm-4 col-xs-12">
-            <!--form start-->
-            <form id="container">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
-                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <div class="form-group form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                  </form>
-
-            <!--form end-->
-        </div>
-</div></div></div>
-        </div>
-    </div>
-
-      
 
      <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
           crossorigin="anonymous"></script>

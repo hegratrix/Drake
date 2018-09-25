@@ -9,9 +9,16 @@
 //  console.error(error)
 //});
 
+$('#checking').on('click', function(event) {
+    let searchCity2 = decodeURIComponent(window.location.search)
+    searchCity2 = searchCity2.substring(1)
+    let newCity2 = searchCity2.replace('para1=','')
+    console.log(newCity2)
+    console.log('hi')
+})
+
 $(".btn").on("click", function(event) {
     event.preventDefault();
-    let city2 = $("#city2-input").val();
     let search = $("#foursquare-input").val();
     $.get(
         "https://api.foursquare.com/v2/venues/explore?client_id=3YERGI2M0YLICHXAYSS3E0HUGHJNPVPOET02V3UFM2SKPIJV&client_secret=PYF2M30ZSHNXR0KWY2YNSLVF0W3SI5RYGYFRDH1VEWJBVVSD&v=20180323&limit=10&near=" +
