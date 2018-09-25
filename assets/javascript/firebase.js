@@ -1,7 +1,7 @@
 //Validate entries and create user in firebase
 $('#submit-register').click(function (event){
   event.preventDefault()
-  email = $('#email-register').val()
+  let email = $('#email-register').val()
   let password1 = $('#password1-register').val()
   let password2 = $('#password2-register').val()
   let status = true
@@ -37,44 +37,51 @@ $('#submit-register').click(function (event){
     firebase.auth().createUserWithEmailAndPassword(email, password1).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
-      console.log(errorCode)
-      console.log(errorMessage)
       if (errorCode.includes('auth/email-already-in-use')) {
+        console.log(errorCode)
+        console.log(errorMessage)
         errorCode = ''
         errorMessage = ''
         $('#sign-up-email').css('color','red')
         $('#sign-up-email').text('That email is already in use')
-      } else {
-        $('#myModalSignUp').css('display', 'none')
+      } else if (errorCode !== '') {
+        $('#sign-up-email').css('color','red')
+        $('#sign-up-email').text('Error logging in')
       };
     });
   };
 });
 
+// log into firebase
 $('#submit-login').click(function (event){
   event.preventDefault()
-  email = $('#email-login').val()
-  let password = $('#password1-login').val()
-  console.log(email)
-  console.log(password)
-  if (status === true) {
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-      promise
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode)
-      console.log(errorMessage)
-      if (errorCode.includes('auth/email-already-in-use')) {
-        $('#email-login').css('color','red')
-        $('#email-login').text('Email Not Recognized')
-      };
-    });
-  };
+  let email = $('#email-login').val()
+  let password = $('#password-login').val()
+  const promise = firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode)
+    console.log(errorMessage)
+    if (errorCode.includes('auth/wrong-password')) {
+      $('#password-label').css('color','red')
+      $('#password-label').text('Invalid Password')
+    } else if (errorCode.includes('auth/user-not-found')) {
+      $('#login-email').css('color','red')
+      $('#login-email').text('Email Not Recognized')
+    } else if (errorCode !== '') {
+      $('#login-email').css('color','red')
+      $('#login-email').text('Error logging in')
+    }
+  });
 });
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if (firebaseUser)  { 
+    console.log(firebaseUser)
+    user = firebase.auth().currentUser.uid
+    console.log(user)
     $('#myModalSignUp').css('display', 'none')
+    $('#myModalLogIn').css('display', 'none')
     $('.log-out-btn').css('display', 'block')
   } else {
     console.log('not logged in')
