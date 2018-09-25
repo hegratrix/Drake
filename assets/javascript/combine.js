@@ -6,11 +6,11 @@ var config = {
   storageBucket: "drake-group.appspot.com",
   messagingSenderId: "701715902088"
 }
- firebase.initializeApp(config)
- const db = firebase.firestore()
- const settings = {timestampsInSnapshots: true}
- db.settings(settings)
-let city2 =''
+  firebase.initializeApp(config)
+  const db = firebase.firestore()
+  const settings = {timestampsInSnapshots: true}
+  db.settings(settings)
+  let city2 =''
 
 // get info and push to firebase change to result page
 $("#compare-btn").on("click", function (event) {
@@ -21,13 +21,12 @@ $("#compare-btn").on("click", function (event) {
   let fromDate = $(".leaving").val();
   let toDate = $(".returning").val();
   db.collection("user").doc('trips').set({
-      starting: city1,
-      destination: city2,
-      leaving: fromDate,
-      returning: toDate,
+    starting: city1,
+    destination: city2,
+    leaving: fromDate,
+    returning: toDate,
   })
   .then(function() {
-    console.log(city2)
     console.log("Document successfully written!"); 
     let newcity2 = "?para1=" + city2;
     location.replace ('./results.html'+ newcity2)
@@ -42,37 +41,25 @@ let newCity = decodeURIComponent(window.location.search);
 newCity = newCity.substring(1);
 let finalCity = newCity.replace('para1=','');
 var docRef = db.collection("user").doc('trips')
-    docRef.get().then(function(doc) {
-    let city1 = doc.data().starting;
-    console.log(city1)
-    city2 = doc.data().destination;
-    console.log(city2)
-    let fromDate = doc.data().leaving;
-    console.log(fromDate)
-    let toDate = doc.data().returning;
-    console.log(toDate)
-    let from = moment(fromDate).format("YYYY-MM-DD");
-    console.log(from)
-    let to = moment(toDate).format("YYYY-MM-DD");
-    console.log(to)
-    let duration = (moment(to, "YYYY-MM-DD").diff(moment(from, "YYYY-MM-DD"), 'days') +1)
-          // let duration = to.diff(from, "days");
-          console.log(duration)
-
-    let url1 ="https://api.apixu.com/v1/forecast.json?key=b44ed5063f3342b280513045181409&q=" + city1 + "&days=10"
-    let url2 ="https://api.apixu.com/v1/forecast.json?key=b44ed5063f3342b280513045181409&q=" + city2 + "&days=10"
+  docRef.get().then(function(doc) {
+  let city1 = doc.data().starting;
+  city2 = doc.data().destination;
+  let fromDate = doc.data().leaving;
+  let toDate = doc.data().returning;
+  let from = moment(fromDate).format("YYYY-MM-DD");
+  let to = moment(toDate).format("YYYY-MM-DD");
+  let duration = (moment(to, "YYYY-MM-DD").diff(moment(from, "YYYY-MM-DD"), 'days') +1)
+  let url1 ="https://api.apixu.com/v1/forecast.json?key=b44ed5063f3342b280513045181409&q=" + city1 + "&days=10"
+  let url2 ="https://api.apixu.com/v1/forecast.json?key=b44ed5063f3342b280513045181409&q=" + city2 + "&days=10"
     
-    
-
-   
-    Promise.all([$.get(url1), $.get(url2)])
+  Promise.all([$.get(url1), $.get(url2)])
   .then(function (results) {
     const city1Forecasts = results[0].forecast.forecastday.filter(
       day => day.date >= fromDate
     );
     const city2Forecasts = results[1].forecast.forecastday.filter(
       day => day.date >= fromDate
-    ); console.log(city2Forecasts)
+    );
     let tempDiffMessage = ''
     let windDiffMessage = ''
     let humidityDiffMessage = ''
@@ -121,6 +108,3 @@ var docRef = db.collection("user").doc('trips')
     }
   })
 })
-  // .catch(function (err) {
-  //   console.log(err);
-  // });

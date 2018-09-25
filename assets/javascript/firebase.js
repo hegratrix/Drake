@@ -4,7 +4,6 @@ $('#submit-register').click(function (event){
   email = $('#email-register').val()
   let password1 = $('#password1-register').val()
   let password2 = $('#password2-register').val()
-  console.log(password1)
   let status = true
   // checks if email is valid
   if ((email.includes('@')===false) || (email.includes('.')===false)) {
@@ -47,10 +46,10 @@ $('#submit-register').click(function (event){
         $('#sign-up-email').text('That email is already in use')
       } else {
         $('#myModalSignUp').css('display', 'none')
-      }
+      };
     });
-  }
-})
+  };
+});
 
 $('#submit-login').click(function (event){
   event.preventDefault()
@@ -68,25 +67,24 @@ $('#submit-login').click(function (event){
       if (errorCode.includes('auth/email-already-in-use')) {
         $('#email-login').css('color','red')
         $('#email-login').text('Email Not Recognized')
-      } 
-    })
-  }
-})
+      };
+    });
+  };
+});
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
-  if (firebaseUser)  {
-    console.log(firebaseUser) 
+  if (firebaseUser)  { 
     $('#myModalSignUp').css('display', 'none')
     $('.log-out-btn').css('display', 'block')
   } else {
     console.log('not logged in')
   }
-})
+});
 
 $('.log-out-btn').on('click', function (){
   firebase.auth().signOut()
   $('.log-out-btn').css('display', 'none')
-})
+});
 
 function showPassword() {
   let type= $('#password1-register').attr('type')
@@ -96,8 +94,8 @@ function showPassword() {
   } else {
     $('#password1-register').attr('type','password')
     $('#password2-register').attr('type','password')
-  }
-}
+  };
+};
 
 function showPassword2() {
   let type= $('#password-login').attr('type')
@@ -105,10 +103,10 @@ function showPassword2() {
     $('#password-login').attr('type','text')
   } else {
     $('#password-login').attr('type','password')
-  }
-}
+  };
+};
 
 function newSearch () {
   let newEmail = decodeURIComponent(window.location.search)
   location.replace('./index.html'+newEmail)
-}
+};
