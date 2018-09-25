@@ -5,7 +5,7 @@ var config = {
   projectId: "drake-group",
   storageBucket: "drake-group.appspot.com",
   messagingSenderId: "701715902088"
-}
+};
   firebase.initializeApp(config)
   const db = firebase.firestore()
   const settings = {timestampsInSnapshots: true}
