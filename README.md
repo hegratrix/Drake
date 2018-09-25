@@ -6,6 +6,7 @@
 2. Enter Email
 3. Create a password (more than 6 characters)
 4. Confirm password
+5. Click Register
 
 ![sign in intro](https://user-images.githubusercontent.com/38542949/46044702-5fee8d80-c0d0-11e8-9f96-778a7c38f790.gif)
 
