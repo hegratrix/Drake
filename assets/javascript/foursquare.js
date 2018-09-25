@@ -31,7 +31,7 @@ $("#search-btn").on("click", function(event) {
         $("#location-holder").append(`
         <div class="card mb-3" style="width: 18rem;">
           <div class="card-body">
-            <p class="card-text text-center">${name}</p>
+            <p class="card-text font-weight-bold text-center">${name}</p>
             <p class="card-text text-center">${category}</p>
             <p class="card-text text-center">${locationStreet}</p>
           </div>
