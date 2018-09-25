@@ -46,7 +46,6 @@ db.collection("user").get().then(function() {
 var docRef = db.collection("user").doc(user)
 docRef.get().then(function(doc) {
   let city1 = doc.data().trip.starting;
-  console.log(city1)
   city2 = doc.data().trip.destination;
   let fromDate = doc.data().trip.leaving;
   let toDate = doc.data().trip.returning;
