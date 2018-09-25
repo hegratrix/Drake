@@ -10,7 +10,6 @@ var config = {
   const db = firebase.firestore()
   const settings = {timestampsInSnapshots: true}
   db.settings(settings)
-  
   newCity2 = decodeURIComponent(window.location.search)
 
 // get info and push to firebase change to result page
@@ -44,7 +43,7 @@ newCity = newCity.substring(1);
 let finalCity = newCity.replace('para1=','');
 db.collection("user").get().then(function() {
 var docRef = db.collection("user").doc(user)
-docRef.get().then(function(doc) {
+  docRef.get().then(function(doc) {
   let city1 = doc.data().trip.starting;
   console.log(city1)
   city2 = doc.data().trip.destination;
@@ -93,6 +92,7 @@ docRef.get().then(function(doc) {
         windDiffMessage = winDiff*-1 + ' MPH windier'
       } else {
         windDiffMessage = winDiff + ' MPH less wind'
+
       }
       const city2Condition = city2Forecasts[i].day.condition.text;
       const city2Icon = city2Forecasts[i].day.condition.icon;
