@@ -10,12 +10,12 @@ var config = {
   const db = firebase.firestore()
   const settings = {timestampsInSnapshots: true}
   db.settings(settings)
-  let city2 =''
+  
+  newCity2 = decodeURIComponent(window.location.search)
 
 // get info and push to firebase change to result page
 $("#compare-btn").on("click", function (event) {
   event.preventDefault()
-  // $("#current-temp").empty();
   let city1 = $(".city1-input").val();
   city2 = $(".city2-input").val();
   let fromDate = $(".leaving").val();

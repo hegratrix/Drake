@@ -1,4 +1,4 @@
-let email = ""
+//Validate entries and create user in firebase
 $('#submit-register').click(function (event){
   event.preventDefault()
   email = $('#email-register').val()

@@ -1,15 +1,15 @@
 var config = {
-  apiKey: "AIzaSyCzzV_Q0Xb1DSeNP4SFcWD-Z2HoJmxZ2NU",
-  authDomain: "group-project-1-f0fcb.firebaseapp.com",
-  databaseURL: "https://group-project-1-f0fcb.firebaseio.com",
-  projectId: "group-project-1-f0fcb",
-  storageBucket: "group-project-1-f0fcb.appspot.com",
-  messagingSenderId: "119110396333"
+  apiKey: "AIzaSyBXMP6_M6jiWJQa8MWuKRPTCrQMHrJZqVE",
+  authDomain: "drake-group.firebaseapp.com",
+  databaseURL: "https://drake-group.firebaseio.com",
+  projectId: "drake-group",
+  storageBucket: "drake-group.appspot.com",
+  messagingSenderId: "701715902088"
 }
-  firebase.initializeApp(config);
-
-  let db = firebase.database()
-  let userRef = db.ref()
+  firebase.initializeApp(config)
+  const db = firebase.firestore()
+  const settings = {timestampsInSnapshots: true}
+  db.settings(settings)
   
   newCity2 = decodeURIComponent(window.location.search)
 
@@ -90,16 +90,16 @@ userRef.on("child_added", function(snapshot) {
                 const humDiff = Math.round(city1DayHum - city2DayHum);
                 // console.log(`Day ${i + 1}: ${Math.round(humDiff)}`);
                        if (humDiff < 0) {
-                              humidityDiffMessage = humDiff*-1 + '% more humidity'
+                              humidityDiffMessage = humDiff*-1 + '% more humid'
                        } else {
-                              humidityDiffMessage = humDiff + '% less humidity'
+                              humidityDiffMessage = humDiff + '% less humid'
                        }
                 const city1DayWind = city1Forecasts[i].day.maxwind_mph;
                 const city2DayWind = city2Forecasts[i].day.maxwind_mph;
                 const winDiff = Math.round(city1DayWind - city2DayWind);
                 // console.log(`Day ${i + 1}: ${Math.round(winDiff)}`);
                        if (winDiff < 0) {
-                              let windDiffMessage = winDiff*-1 + 'mph more wind'
+                              let windDiffMessage = winDiff*-1 + 'mph windier'
                        } else {
                               let windDiffMessage = winDiff + 'mph less wind'
                        }
