@@ -70,5 +70,4 @@ $('#checking').on('click', function() {
     newCity = newCity.substring(1)
     newCity = newCity.replace('para1=','') 
     console.log(newCity)
-    console.log('hi')
 })

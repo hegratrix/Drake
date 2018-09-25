@@ -68,10 +68,7 @@ $('#submit-login').click(function (event){
       if (errorCode.includes('auth/email-already-in-use')) {
         $('#email-login').css('color','red')
         $('#email-login').text('Email Not Recognized')
-      } else {
-        console.log('good')
-        $('#myModalSignUp').css('display', 'none')
-      }
+      } 
     })
   }
 })
@@ -80,9 +77,15 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
   if (firebaseUser)  {
     console.log(firebaseUser) 
     $('#myModalSignUp').css('display', 'none')
+    $('.log-out-btn').css('display', 'block')
   } else {
     console.log('not logged in')
   }
+})
+
+$('.log-out-btn').on('click', function (){
+  firebase.auth().signOut()
+  $('.log-out-btn').css('display', 'none')
 })
 
 function showPassword() {

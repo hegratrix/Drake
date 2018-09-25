@@ -20,13 +20,11 @@ $("#compare-btn").on("click", function (event) {
   city2 = $(".city2-input").val();
   let fromDate = $(".leaving").val();
   let toDate = $(".returning").val();
-  db.collection("user").doc('hegratrix@yahoo.com').set({
-    trip: {
+  db.collection("user").doc('trips').set({
       starting: city1,
       destination: city2,
       leaving: fromDate,
       returning: toDate,
-    }
   })
   .then(function() {
     console.log(city2)
@@ -39,24 +37,25 @@ $("#compare-btn").on("click", function (event) {
   });
 })
 
-// // using firebase, show results
+
 let newCity = decodeURIComponent(window.location.search);
 newCity = newCity.substring(1);
 let finalCity = newCity.replace('para1=','');
-var docRef = db.collection("user").doc('hegratrix@yahoo.com')
-// db.collection("user").get().then(function(snapshot) {
-  // snapshot.forEach(function(doc) {
+var docRef = db.collection("user").doc('trips')
     docRef.get().then(function(doc) {
-      if (doc.exists) {
-          console.log("Document data:", doc.data().trip.destination);
-      }
-    let city1 = doc.data().trip.starting;
-    city2 = doc.data().trip.destination;
-    let fromDate = doc.data().trip.leaving;
-    let toDate = doc.data().trip.returning;
+    let city1 = doc.data().starting;
+    console.log(city1)
+    city2 = doc.data().destination;
+    console.log(city2)
+    let fromDate = doc.data().leaving;
+    console.log(fromDate)
+    let toDate = doc.data().returning;
+    console.log(toDate)
     let from = moment(fromDate).format("YYYY-MM-DD");
+    console.log(from)
     let to = moment(toDate).format("YYYY-MM-DD");
-    let duration = moment(to, "YYYY-MM-DD").diff(moment(from, "YYYY-MM-DD"), 'days')
+    console.log(to)
+    let duration = (moment(to, "YYYY-MM-DD").diff(moment(from, "YYYY-MM-DD"), 'days') +1)
           // let duration = to.diff(from, "days");
           console.log(duration)
 
@@ -73,13 +72,12 @@ var docRef = db.collection("user").doc('hegratrix@yahoo.com')
     );
     const city2Forecasts = results[1].forecast.forecastday.filter(
       day => day.date >= fromDate
-    );
+    ); console.log(city2Forecasts)
     let tempDiffMessage = ''
     let windDiffMessage = ''
     let humidityDiffMessage = ''
-    let date = city1Forecasts
-    for (let i = 0; i < duration+1; i++) {
-      date = date[i].date;
+    for (let i = 0; i < duration; i++) {
+      let date = city1Forecasts[i].date;
       let day = moment(date).format('dddd')
       const city1DayMax = city1Forecasts[i].day.maxtemp_f;
       const city2DayMax = city2Forecasts[i].day.maxtemp_f;

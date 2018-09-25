@@ -85,3 +85,10 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.log-out-btn {
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+
+}
