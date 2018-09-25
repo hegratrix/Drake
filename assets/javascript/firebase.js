@@ -4,8 +4,8 @@ $('#submit-register').click(function (event){
   email = $('#email-register').val()
   let password1 = $('#password1-register').val()
   let password2 = $('#password2-register').val()
+  console.log(password1)
   let status = true
-  console.log(status)
   // checks if email is valid
   if ((email.includes('@')===false) || (email.includes('.')===false)) {
     $('#sign-up-email').css('color','red')
@@ -38,14 +38,15 @@ $('#submit-register').click(function (event){
     firebase.auth().createUserWithEmailAndPassword(email, password1).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
-      console.log('close')
       console.log(errorCode)
       console.log(errorMessage)
       if (errorCode.includes('auth/email-already-in-use')) {
+        errorCode = ''
+        errorMessage = ''
         $('#sign-up-email').css('color','red')
         $('#sign-up-email').text('That email is already in use')
       } else {
-        modal.style.display = "none"
+        $('#myModalSignUp').css('display', 'none')
       }
     });
   }
@@ -54,9 +55,11 @@ $('#submit-register').click(function (event){
 $('#submit-login').click(function (event){
   event.preventDefault()
   email = $('#email-login').val()
-  // let password1 = $('#password1-login').val()
+  let password = $('#password1-login').val()
+  console.log(email)
+  console.log(password)
   if (status === true) {
-    firebase.auth().createUserWithEmailAndPassword(email, password1).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
       console.log(errorCode)
@@ -89,4 +92,9 @@ function showPassword2() {
   } else {
     $('#password-login').attr('type','password')
   }
+}
+
+function newSearch () {
+  let newEmail = decodeURIComponent(window.location.search)
+  location.replace('./index.html'+newEmail)
 }

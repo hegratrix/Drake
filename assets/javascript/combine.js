@@ -29,8 +29,8 @@ $("#compare-btn").on("click", function (event) {
   })
   .then(function() {
     console.log("Document successfully written!"); 
-    let newEmail = "?para1=" + email;
-     location.replace ('./results.html'+newEmail)
+    let newcity2 = "?para1=" + city2;
+    location.replace ('./results.html'+newcity2)
   })
   .catch(function(error) {
     console.error("Error writing document: ", error);
@@ -56,25 +56,28 @@ var docRef = db.collection("user").doc(finalEmail)
     let to = moment(toDate).format("YYYY-MM-DD");
     let duration = moment(to, "YYYY-MM-DD").diff(moment(from, "YYYY-MM-DD"), 'days')
           // let duration = to.diff(from, "days");
-    let url1 ="https://api.apixu.com/v1/forecast.json?key=b44ed5063f3342b280513045181409&q=" +      city1 +"&days=10"
-    let url2 ="https://api.apixu.com/v1/forecast.json?key=b44ed5063f3342b280513045181409&q=" + city2 +"&days=10"
+          console.log(duration)
+
+    let url1 ="https://api.apixu.com/v1/forecast.json?key=b44ed5063f3342b280513045181409&q=" + city1 + "&days=10"
+    let url2 ="https://api.apixu.com/v1/forecast.json?key=b44ed5063f3342b280513045181409&q=" + city2 + "&days=10"
     
     
 
    
-            Promise.all([$.get(url1), $.get(url2)])
+    Promise.all([$.get(url1), $.get(url2)])
   .then(function (results) {
     const city1Forecasts = results[0].forecast.forecastday.filter(
-      day => day.date >= from
+      day => day.date >= fromDate
     );
     const city2Forecasts = results[1].forecast.forecastday.filter(
-      day => day.date >= from
+      day => day.date >= fromDate
     );
     let tempDiffMessage = ''
     let windDiffMessage = ''
     let humidityDiffMessage = ''
-    for (let i = 0; i < duration; i++) {
-      let date = city1Forecasts[i].date;
+    let date = city1Forecasts
+    for (let i = 0; i < duration+1; i++) {
+      date = date[i].date;
       let day = moment(date).format('dddd')
       const city1DayMax = city1Forecasts[i].day.maxtemp_f;
       const city2DayMax = city2Forecasts[i].day.maxtemp_f;
