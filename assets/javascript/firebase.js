@@ -38,6 +38,8 @@ $('#submit-register').click(function (event){
       var errorCode = error.code;
       var errorMessage = error.message;
       if (errorCode.includes('auth/email-already-in-use')) {
+        console.log(errorCode)
+        console.log(errorMessage)
         errorCode = ''
         errorMessage = ''
         $('#sign-up-email').css('color','red')

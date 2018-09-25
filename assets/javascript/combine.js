@@ -10,7 +10,8 @@ var config = {
   const db = firebase.firestore()
   const settings = {timestampsInSnapshots: true}
   db.settings(settings)
-  let city2 =''
+  
+  newCity2 = decodeURIComponent(window.location.search)
 
 // get info and push to firebase change to result page
 $("#compare-btn").on("click", function (event) {
@@ -43,7 +44,7 @@ newCity = newCity.substring(1);
 let finalCity = newCity.replace('para1=','');
 db.collection("user").get().then(function() {
 var docRef = db.collection("user").doc(user)
-  docRef.get().then(function(doc) {
+docRef.get().then(function(doc) {
   let city1 = doc.data().trip.starting;
   console.log(city1)
   city2 = doc.data().trip.destination;
@@ -101,7 +102,7 @@ var docRef = db.collection("user").doc(user)
           <img class="card-img-top" src="https:${city2Icon}" alt="Card image cap">
           <h2 id="card-city">${city2}</h2>
           <div class="card-body">
-            <p class="card-text font-weight-bold">${day}: ${city2Condition}</p>
+            <p class="card-text font-weight-bold text-center">${day}: ${city2Condition}</p>
             <p class="card-text">${tempDiffMessage}</p>
             <p class="card-text">${humidityDiffMessage}</p>
             <p class="card-text">${windDiffMessage}</p>

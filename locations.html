@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Places To Visit/Things To Do</title>
+    <title>Places To Visit & Things To Do</title>
     <!--CSS Reset-->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <!--Favicon-->
@@ -31,51 +31,40 @@
                     <p class="lead">Here are some places to visit where you'll be going.</p>
                 </div>
             </div>
-        </div><button id='checking'>checking</button>
-    </div>
+        </div>
 
     <!--results for each day-->
-    <div class="container">
-        <div class="row justify-content-around">
-            <div class="card mb-3" style="width: 18rem;">
-                <img class="card-img-travel" src="assets/images/boots.jpg" style="width: auto; height: 250px" alt="Card image cap">
+ <div class="container">
+    <div class="form-row">
+        <div class="form-group col-sm text-center">
+            <div class="card text-center" id="input-card">
                 <div class="card-body">
-                    <p class="card-text font-weight-bold">Location One</p>
-                    <p class="card-text">Location Category</p>
-                    <p class="card-text">Location Address</p>
+                    Where would you like to go?
                 </div>
+                <input class="form-control, foursquare-input" id="form-body" type="text" placeholder="Search restaurants, parks, attractions, etc in or near your destination.">
             </div>
-
-            <div class="card mb-3" style="width: 18rem;">
-                <img class="card-img-travel" src="assets/images/jacket.jpg" style="width: auto; height: 250px" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text font-weight-bold">Location Two</p>
-                    <p class="card-text">Location Category</p>
-                    <p class="card-text">Location Address</p>
-                    </div>
-               </div>
-            
-            <div class="card mb-3" style="width: 18rem;">
-                <img class="card-img-travel" src="assets/images/umbrella.jpg" style="width: auto; height: 250px" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text font-weight-bold">Location Three</p>
-                        <p class="card-text">Location Category</p>
-                        <p class="card-text">Location Address</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--reset button-->
-        <div class="container justify-content-center">
-            <div class="form-group col-sm text-center">
-                <button data-balloon="Go back!" data-balloon-pos="up" type="button" class="btn btn-primary mr-5">Back To Comparison</button>
-                <button data-balloon="Start over." data-balloon-pos="up" type="button" class="btn btn-primary">Create New Comparison</button>
-            </div>  
-                <button data-balloon="Start over." data-balloon-pos="down" type="button" class="btn btn-primary log-out-btn"onclick="LogOut()">Log Out</button>
+            <button data-balloon="Get your search results." data-balloon-pos="down" id="search-btn" type="submit" class="btn btn-primary mb-2">Search</button>
         </div>
     </div>
+</div>
 
+<!--location search results-->
+<div class="container">
+    <div id="location-holder" class="row justify-content-around">
+    </div>
+</div>
+
+<!--reset button-->
+<div class="container justify-content-center">
+    <div class="form-group col-sm text-center">
+        <button data-balloon="Go back." data-balloon-pos="up" id="compare-btn" type="button" class="btn btn-primary mr-5">Back To Comparison</button>
+        <button data-balloon="Start over." data-balloon-pos="up" id="new-comp-btn" type="button" class="btn btn-primary">Create New Comparison</button>
+    </div>  
+        <button data-balloon="Log out." data-balloon-pos="down" type="button" class="btn btn-primary log-out-btn" onclick="LogOut()">Log Out</button>
+</div>
+</div>
+
+<!--jQuery, Firebase & JS links-->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>t>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
@@ -85,7 +74,7 @@
     <script src="./assets/javascript/javascript.js"></script>
     <script src="./assets/javascript/combine.js"></script>
     <script src="./assets/javascript/firebase.js"></script>
-    <!-- <script src="./assets/javascript/foursquare.js"></script> -->
+    <script src="./assets/javascript/foursquare.js"></script>
 
 </body>
 </html>
