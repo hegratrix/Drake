@@ -77,9 +77,7 @@ $('#submit-login').click(function (event){
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if (firebaseUser)  { 
-    console.log(firebaseUser)
     user = firebase.auth().currentUser.uid
-    console.log(user)
     $('#myModalSignUp').css('display', 'none')
     $('#myModalLogIn').css('display', 'none')
     $('.log-out-btn').css('display', 'block')
