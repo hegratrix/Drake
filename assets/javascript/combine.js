@@ -89,9 +89,9 @@ docRef.get().then(function(doc) {
       const city2DayWind = city2Forecasts[i].day.maxwind_mph;
       const winDiff = Math.round(city1DayWind - city2DayWind);
       if (winDiff < 0) {
-        windDiffMessage = winDiff*-1 + 'mph more wind'
+        windDiffMessage = winDiff*-1 + ' MPH windier'
       } else {
-        windDiffMessage = winDiff + 'mph less wind'
+        windDiffMessage = winDiff + ' MPH less windy'
       }
       const city2Condition = city2Forecasts[i].day.condition.text;
       const city2Icon = city2Forecasts[i].day.condition.icon;
@@ -102,9 +102,9 @@ docRef.get().then(function(doc) {
           <h2 id="card-city">${city2}</h2>
           <div class="card-body">
             <p class="card-text font-weight-bold text-center">${day}: ${city2Condition}</p>
-            <p class="card-text">${tempDiffMessage}</p>
-            <p class="card-text">${humidityDiffMessage}</p>
-            <p class="card-text">${windDiffMessage}</p>
+            <p class="card-text text-center">${tempDiffMessage}</p>
+            <p class="card-text text-center">${humidityDiffMessage}</p>
+            <p class="card-text text-center">${windDiffMessage}</p>
           </div>
         </div>
       `);
